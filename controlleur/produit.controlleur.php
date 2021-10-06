@@ -6,6 +6,8 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
         mes_produit();
        }elseif ($_GET['views']=='insert') {
         require(ROUTE_DIR.'views/produit/insert_produit.html.php');
+       }elseif ($_GET['views']=='edit') {
+        require(ROUTE_DIR.'views/produit/insert_produit.html.php');
        }
 
 
@@ -47,6 +49,7 @@ function mes_produit(){
   $premier=($current_page*$par_page)-$par_page;
   $produits=get_produit($premier);
   $prod=$produits['data'];
+  //var_dump($prod); die;
 
 require(ROUTE_DIR.'views/produit/produit.html.php');
 }

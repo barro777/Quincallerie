@@ -19,8 +19,7 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
             if (isset($_POST['action'])=='insert_commande') {
                 unset($_POST['controlleur']);
                 unset($_POST['action']);
-                var_dump($_SESSION);
-                die;
+               
                 
                 ajout_commande($_POST);
             }

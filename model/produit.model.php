@@ -32,7 +32,7 @@ function find_produit(){
 
 function get_produit($offset):array{
     $pdo = ouvrir_connexion_bd();
-    $sql = "select nom_produit , prix_unitaire , nom_sous_categorie from  Produit p, Sous_categorie s 
+    $sql = "select nom_produit , prix_unitaire , nom_sous_categorie, id_produit  from  Produit p, Sous_categorie s 
     where p.id_sous_catégorie = s.id_sous_categorie 
     limit $offset,".NBR_PAGE;
     $sth = $pdo->prepare($sql,array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
