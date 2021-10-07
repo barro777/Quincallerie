@@ -34,8 +34,6 @@ $prod = find_produit();
                       <label for="">Montant Commande </label>
                       <input type="text" name="montant_commande" class="col-sm-6 ml-2"id="bord"placeholder="fcfa">
             </div>
-            <!-- <input type="hidden" name="id_user"value="<?= $id_user ?>">
-            -->
              <div class="col-sm">
                 <label for=""class=""> Produit</label>
                 <select class="col-sm-6" id="bord" name="produit">
