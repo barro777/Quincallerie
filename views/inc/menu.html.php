@@ -1,5 +1,8 @@
 <?php
  require (ROUTE_DIR.'views/inc/header.html.php');
+
+ $img=$_SESSION['userConnect'][0]['image'];
+
  ?>
   <body>
   <div class="bg-secondary">
@@ -9,6 +12,9 @@
                           class="txt">
                           Quincallerie Barro & Frére
                           </h3>
+                          
+                          <img class="img"src="<?php echo WEB_ROUTE.$img ?>" alt="" style=""> 
+
                         <?php if (isset($_GET['views'])=='Déconnexion'):?>
                         <button type="submit" class="deconnect" name="Déconnexion"><a href="controlleur=security&views=Déconnexion">Déconnexion</a></button> 
                         <?php endif ?>
@@ -49,7 +55,7 @@
                     </a>
                     <!-- bloc menu déroulant -->
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="<?=WEB_ROUTE.'?controlleur=produit&views=insert'?>">Enregistrer un Versement</a>
+                    <a class="dropdown-item" href="<?=WEB_ROUTE.'?controlleur=versement&views=fair_versement'?>">Enregistrer un Versement</a>
                     <a class="dropdown-item" href="#">Liste des Versements</a>
                     <a class="dropdown-item" href="#">Liste des Paiements</a>
                     

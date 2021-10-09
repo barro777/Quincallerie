@@ -33,10 +33,12 @@
   <li class ="page-item <?= ($current_page == 1) ? "disabled": "" ?>"> 
     <a href="<?=WEB_ROUTE.'?controlleur=produit&views=produit&page='. ($current_page - 1)?>" class = "page-link"> Précedent </a>
   </li>
-
-  <?php for ($i=1;$i<=$page;$i++):?>
-    <li class="page-item"><a href="<?=WEB_ROUTE.'?controlleur=produit&views=produit&page='.$i?>"><?= $i ?> </a></li>
+<div>
+<?php for ($i=1;$i<=$page;$i++):?>
+    <a class=""href="<?=WEB_ROUTE.'?controlleur=produit&views=produit&page='.$i?>"><?= $i ?> </a>
   <?php endfor ?>
+</div>
+ 
 
   <li class ="page-item <?= ($current_page== $page)?"disabled":"" ?>" >
     <a href="<?= WEB_ROUTE.'?controlleur=produit&views=produit&page='. ($current_page + 1 )?>" class="page-link"> Suivante</a>

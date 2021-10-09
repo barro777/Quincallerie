@@ -132,6 +132,12 @@ function corr_date_en (DateTime $actu):string{
    $actu =date_create ();
    return  date_format($actu,"d/m/Y");
 }
+function error_lettre(array &$arrayError,string $key,$numb):array{
+   if(est_numeric($numb)){
+         $arrayError[$key]='veiller revoire votre saisi';
+      }
+   return $arrayError;
+}
 
 /*
 

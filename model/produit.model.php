@@ -68,15 +68,8 @@ function add_produit(array $produit,$files):int{
     fermer_connexion_bd($pdo);
     return $sth->rowCount();
 } 
-function add_categorie(array $categorie):int{
-    $pdo = ouvrir_connexion_bd();
-    $sql = "INSERT INTO `Categorie` (`nom_categorie`,`id_categorie`) 
-     VALUES ( ?, ?)";
-    $sth = $pdo->prepare($sql,array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-    $sth->execute($categorie);
-    fermer_connexion_bd($pdo);
-    return $sth->rowCount();
-} 
+
+
 function add_souscategorie(array $souscategorie):int{
     $pdo = ouvrir_connexion_bd();
     extract ($souscategorie);

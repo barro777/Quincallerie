@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
        }elseif ($_GET['views']=='insert') {
         require(ROUTE_DIR.'views/produit/insert_produit.html.php');
        }elseif ($_GET['views']=='edit') {
+         //update
         require(ROUTE_DIR.'views/produit/insert_produit.html.php');
        }
 
@@ -53,7 +54,9 @@ function mes_produit(){
 
 require(ROUTE_DIR.'views/produit/produit.html.php');
 }
-          //`nom_produit`,`prix`, `id_fournisseur`, `quantite_stock`, `id_sous_categorie`, `image`
+       
+
+//`nom_produit`,`prix`, `id_fournisseur`, `quantite_stock`, `id_sous_categorie`, `image`
          // $produit=[
            // $libelle,$prix,$four,$quant,$souscate,$files["photo"]["name"]
            //];

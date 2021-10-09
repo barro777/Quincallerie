@@ -6,7 +6,6 @@ function add_commande($datec,$datep,$quantite,$montant_commande,$id_user,$produi
    $quantite=(int)$quantite;
    $montant_commande=(int)$montant_commande;
    $produit = (int) $produit;
-   
     $pdo = ouvrir_connexion_bd();
     //extract($commande);
     $sql = "INSERT INTO `Commande` (`date_commande`, `date_prevue`, `quantite_commande`, `mnt_commande`, `id_user`, `id_produit`) 
@@ -57,6 +56,17 @@ function count_command():int{
     fermer_connexion_bd($pdo);
     return $sth->rowCount();
 
+}
+function find_commande(){
+    $pdo = ouvrir_connexion_bd();
+    $sql = "select * from  Commande c, Produit p
+    where p.id_produit = c.id_produit and
+     etat_commande like 'en_cour'";
+    $sth = $pdo->prepare($sql,array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+    $sth->execute();
+    $cth = $sth->fetchALL();
+    fermer_connexion_bd($pdo);
+    return $cth;
 }
 
 
