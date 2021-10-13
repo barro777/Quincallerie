@@ -6,7 +6,11 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
        }elseif ($_GET['views']=='fair_commande') {
        
          require(ROUTE_DIR.'views/command/insert_commande.html.php');
-       }
+       }elseif ($_GET['views']=='edit') {
+        $id_commande= $_GET['id_produit'];
+    
+        require(ROUTE_DIR.'views/command/insert_edit_commande.html.php');
+      }
 
 
     }else{
@@ -21,7 +25,11 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
                 unset($_POST['action']);
                 ajout_commande($_POST);
             }
-         }
+         }if ($_POST['action'] =='update_commande') {
+            unset($_POST['controlleur']);
+            unset($_POST['action']);
+            edit_commande ($_POST);
+        }
     } 
     function mes_commande(){
         $count = count_command();
@@ -38,7 +46,6 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
 
         $arrayError = array();
         
-   
       if (form_valid($arrayError)){
         
    $id_user=(int)$_SESSION['userConnect'][0]['id_user'];
@@ -53,6 +60,20 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
           
       }
   }
-
+function edit_commande (array $edit):void{
+       extract($edit);
+       if (form_valid($arrayError)) {
+           
+        
+        update_commande($etat_commande, $date_livrer,$mtn_restant , $id_commande);   
+        header('location:'.WEB_ROUTE.'?controlleur=commande&views=les_commandes');
+       }
+        else{
+            $_SESSION['arrayError']=$arrayError;
+            header('location:'.WEB_ROUTE.'?controlleur=security&views=connexion');
+            
+        }
+    
+}
                  
 ?>

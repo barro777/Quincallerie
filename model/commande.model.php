@@ -40,8 +40,7 @@ function get_comman($offset):array{
     $sth->execute();
     $commande = $sth->fetchALL();
     fermer_connexion_bd($pdo);
-    return [
-
+    return [                                                                                        
         'data'=> $commande,
         'count'=> $sth->rowCount()
     ];
@@ -68,6 +67,23 @@ function find_commande(){
     fermer_connexion_bd($pdo);
     return $cth;
 }
+function update_commande($etat_commande, $date_livrer,$mtn_restant , $id_commande):int{
+
+     $pdo = ouvrir_connexion_bd();
+     $etat_commande ='en_cour';
+     
+   
+     $sql = "UPDATE `Commande` SET 
+     `etat_commande` = ? , `date_livrer` = ?, 
+     `mnt_restant` = ? WHERE `Commande`.`id_commande` = ? ";
+     $sth = $pdo->prepare($sql,array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+     $sth->execute($etat_commande, $date_livrer,$mtn_restant , $id_commande);
+     fermer_connexion_bd($pdo);
+    return $sth->rowCount(); 
+
+ 
+ }
+
 
 
 

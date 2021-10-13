@@ -1,7 +1,8 @@
 <?php
  require (ROUTE_DIR.'views/inc/header.html.php');
 
- $img=$_SESSION['userConnect'][0]['image'];
+ 
+
 
  ?>
   <body>
@@ -13,7 +14,7 @@
                           Quincallerie Barro & Frére
                           </h3>
                           
-                          <img class="img"src="<?php echo WEB_ROUTE.$img ?>" alt="" style=""> 
+                          
 
                         <?php if (isset($_GET['views'])=='Déconnexion'):?>
                         <button type="submit" class="deconnect" name="Déconnexion"><a href="controlleur=security&views=Déconnexion">Déconnexion</a></button> 
@@ -24,6 +25,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="">
                 <ul class="navbar-nav ">
                 
@@ -38,6 +40,7 @@
                     <a class="dropdown-item" href="<?=WEB_ROUTE.'?controlleur=produit&views=produit'?>">liste des produits</a>
                     </div>
                 </li>
+              
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-warning " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Commande
@@ -49,6 +52,8 @@
                     
                     </div>
                 </li>
+               
+             
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-warning " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Versement
@@ -61,6 +66,7 @@
                     
                     </div>
                 </li>
+                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-warning " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Utilisateur
@@ -71,8 +77,12 @@
                     <a class="dropdown-item" href="<?=WEB_ROUTE.'?controlleur=fournisseur&views=inscrire'?>">Enregistrer un Fournisseur</a>
                     <a class="dropdown-item" href="#">Liste des Utilisateurs</a>
                     </div>
+
                 </li>
                 </ul>
             </div>
-</nav>                              
+            
+</nav>
+                          
 </div>
+

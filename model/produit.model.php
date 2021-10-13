@@ -81,7 +81,17 @@ function add_souscategorie(array $souscategorie):int{
     return $sth->rowCount();
 } 
 
-
+function delete( $id_produit):int{
+    extract($id_produit);
+   
+    $pdo=ouvrir_connexion_bd();
+    $sql="DELETE FROM `Produit` WHERE id_produit = ? ;
+    ";
+    $sth = $pdo->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+    $sth->execute((int) $id_produit);
+    fermer_connexion_bd($pdo);
+    return $sth->rowCount();
+ }
 
 
 

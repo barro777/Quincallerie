@@ -22,7 +22,7 @@
       <td><?=$produit['nom_produit']?></td>
       <td><?=$produit['nom_sous_categorie'] ?></td>
       <td><?=$produit['prix_unitaire']?> fcfa</td>
-      <td><a href="<?=WEB_ROUTE.'?controlleur=produit&views=edit&id_produit='.$produit['id_produit']?>" title="Modifier"><i class="bi bi-pencil-square"></i></a> <a href="" title="Suprimer" ><i class="bi bi-trash" ></i></a></td>
+      <td> <a href="<?=WEB_ROUTE.'?controlleur=produit&views=supprimer&id_produit='.$produit['id_produit']?>" title="Suprimer" ><i class="bi bi-trash" ></i></a></td>
     </tr>
     <?php endforeach  ?>
   </tbody>

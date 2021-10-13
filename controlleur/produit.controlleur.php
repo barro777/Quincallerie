@@ -9,7 +9,13 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
        }elseif ($_GET['views']=='edit') {
          //update
         require(ROUTE_DIR.'views/produit/insert_produit.html.php');
+       }elseif ($_GET['views']=='supprimer') { 
+        $id_produit= $_GET ['id_produit'];
+        require(ROUTE_DIR.'views/produit/delete.html.php');
+       }elseif ($_GET['views']=='delete') { 
+        delete_produit($id);
        }
+       
 
 
     }else{
@@ -22,10 +28,18 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
                  unset($_POST['controlleur']);
                  unset($_POST['action']);
                 inscrire_produit($_POST,$_FILES);
-            
               }
           }
+        if ($_POST['action']=='delete') {  
+            unset($_POST['controlleur']);
+            unset($_POST['action']);
+            $_POST=(int)$_POST;
+           delete_produit($_POST);
+         } 
       }
+
+
+
       function inscrire_produit(array $post,$files){
         $arrayError=array();
           extract($post);
@@ -42,6 +56,9 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
             header('location:'.WEB_ROUTE.'?controlleur=produit&views=insert');
         } 
       }
+
+
+
 function mes_produit(){
   $count = count_produit();
   $par_page = NBR_PAGE;
@@ -59,5 +76,14 @@ require(ROUTE_DIR.'views/produit/produit.html.php');
 //`nom_produit`,`prix`, `id_fournisseur`, `quantite_stock`, `id_sous_categorie`, `image`
          // $produit=[
            // $libelle,$prix,$four,$quant,$souscate,$files["photo"]["name"]
-           //];
+          //];
+
+
+
+function delete_produit($id_produit){
+   delete ($id_produit);
+   require_once(ROUTE_DIR.'views/produit/produit.html.php');
+
+}
+
  ?>
